@@ -88,6 +88,34 @@ function addNewPostListener() {
   });
 }
 
+// Handle the edit form submission
+const editForm = document.getElementById("edit-post-form");
+
+editForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  // Get new values from the form
+  const newTitle = document.getElementById("edit-title").value;
+  const newContent = document.getElementById("edit-content").value;
+  const postId = editForm.dataset.id;
+
+  // Update the detail section with new values
+  const detail = document.getElementById("post-detail");
+  detail.innerHTML = `
+    <h2>${newTitle}</h2>
+    <p>${newContent}</p>
+    <p><em>updated (not saved)</em></p>
+    <button id="edit-btn">Edit</button>
+  `;
+
+  editForm.classList.add("hidden");
+});
+
+// Cancel edit and hide form
+document.getElementById("cancel-edit").addEventListener("click", () => {
+  editForm.classList.add("hidden");
+});
+
 // Run when page is ready
 document.addEventListener("DOMContentLoaded", () => {
   displayPosts();
