@@ -38,6 +38,7 @@ function showPostDetails(id) {
         <p>${post.content}</p>
         <p><em>by ${post.author}</em></p>
         <button id="edit-btn">Edit</button>
+        <button id="delete-btn">Delete</button>
       `;
 
       // When I click Edit, show the edit form
@@ -51,6 +52,23 @@ function showPostDetails(id) {
 
         // Save the ID of the post we're editing
         editForm.dataset.id = post.id;
+      });
+
+      // When I click Delete, remove post from list and clear details
+      document.getElementById("delete-btn").addEventListener("click", () => {
+        const postList = document.getElementById("post-list");
+        const postDivs = postList.querySelectorAll("div");
+        postDivs.forEach(div => {
+          if (parseInt(div.dataset.id) === post.id) {
+            div.remove();
+          }
+        });
+
+        detail.innerHTML = "<p>Select a post to see details</p>";
+
+        // Hide edit form if visible
+        const editForm = document.getElementById("edit-post-form");
+        editForm.classList.add("hidden");
       });
     });
 }
@@ -106,6 +124,7 @@ editForm.addEventListener("submit", (e) => {
     <p>${newContent}</p>
     <p><em>updated (not saved)</em></p>
     <button id="edit-btn">Edit</button>
+    <button id="delete-btn">Delete</button>
   `;
 
   editForm.classList.add("hidden");
