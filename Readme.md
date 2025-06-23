@@ -1,6 +1,6 @@
 # Simple Blog Manager
 
-A simple blog management app built using HTML, CSS, and JavaScript with a local JSON server backend. It allows users to view, add, edit, and delete blog posts from a clean and easy-to-use interface.
+A simple blog management app built using HTML, CSS, and JavaScript with a local JSON Server backend. It allows users to view, add, edit, and delete blog posts through a clean and user-friendly interface.
 
 ---
 
@@ -20,8 +20,8 @@ A simple blog management app built using HTML, CSS, and JavaScript with a local 
 - HTML5
 - CSS3
 - JavaScript (ES6)
-- [JSON Server](https://github.com/typicode/json-server) for the local backend
-- Live Server for frontend preview
+- [JSON Server](https://github.com/typicode/json-server) for the backend
+- [Live Server](https://www.npmjs.com/package/live-server) for local frontend preview
 
 ---
 
@@ -29,37 +29,44 @@ A simple blog management app built using HTML, CSS, and JavaScript with a local 
 
 ### Prerequisites
 
-- Node.js installed
-- `json-server` and `live-server` installed globally:
+Make sure you have Node.js installed, then install the following globally:
 
 ```bash
 npm install -g json-server live-server
-## Project Setup
-1.Clone the repo or download the ZIP
+Project Setup
+Clone the repo or download the ZIP.
 
-2.Inside the project folder, you should see:
+Inside the project folder, make sure you have:
 index.html  
 style.css  
 index.js  
 db.json
-3.Run the backend server:
+Start the backend server:
+
+
 json-server --watch db.json
-4.Open the frontend with:
+Launch the frontend with:
+
 live-server
-The app will open at something like http://127.0.0.1:5500
+The app should open in your browser at: http://127.0.0.1:5500
 
-##API Endpoints (local JSON server)
-GET /posts - fetch all posts
+API Endpoints (Local JSON Server)
+GET /posts — fetch all posts
 
-GET /posts/:id - fetch single post
+GET /posts/:id — fetch a single post
 
-POST /posts - create new post
+POST /posts — create a new post
 
-PATCH /posts/:id - update a post
+PATCH /posts/:id — update an existing post
 
-DELETE /posts/:id - delete a post
+DELETE /posts/:id — delete a post
 
-##Author
+🔗 Live Demo (Frontend Only)
+This version is hosted on GitHub Pages. Since it uses fetch() to call localhost:3000, you won’t see full functionality unless you run JSON Server locally.
+
+
+Author
 Kurui Joshua
 Student at Moringa School
+
 
