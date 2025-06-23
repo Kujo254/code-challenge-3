@@ -34,7 +34,7 @@ A simple blog management app built using HTML, CSS, and JavaScript with a local 
 
 ```bash
 npm install -g json-server live-server
-Project Setup
+## Project Setup
 1.Clone the repo or download the ZIP
 
 2.Inside the project folder, you should see:
@@ -48,7 +48,7 @@ json-server --watch db.json
 live-server
 The app will open at something like http://127.0.0.1:5500
 
-API Endpoints (local JSON server)
+##API Endpoints (local JSON server)
 GET /posts - fetch all posts
 
 GET /posts/:id - fetch single post
@@ -59,7 +59,7 @@ PATCH /posts/:id - update a post
 
 DELETE /posts/:id - delete a post
 
-Author
+##Author
 Kurui Joshua
 Student at Moringa School
 
