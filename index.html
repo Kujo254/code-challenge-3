@@ -2,45 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog Post Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Blog Manager</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Blog Post Manager</h1>
 
-  <div id="post-list">
-    <h2>All Posts</h2>
-  </div>
+  <header>
+    <h1>Simple Blog Manager</h1>
+  </header>
 
-  <div id="post-detail">
-    <h2>Post Details</h2>
-  </div>
+  <!-- Welcome Message -->
+  <section class="intro">
+    <h2>Welcome to My Blog</h2>
+    <p>Browse posts, add your own, edit or delete as you like. It’s simple and fun!</p>
+  </section>
 
-  <form id="new-post-form">
-    <h3>Add a New Post</h3>
-    <label for="new-title">Title:</label>
-    <input type="text" id="new-title" required><br>
+  <main class="container">
+    <!-- Post List -->
+    <section id="post-list" aria-label="List of blog posts">
+      <h2>All Posts</h2>
+    </section>
 
-    <label for="new-author">Author:</label>
-    <input type="text" id="new-author" required><br>
+    <!-- Post Details and Forms -->
+    <section class="right-section">
+      <div id="post-detail" aria-live="polite" aria-label="Selected post details">
+        <p>Select a post to see details</p>
+      </div>
 
-    <label for="new-content">Content:</label>
-    <textarea id="new-content" rows="4" required></textarea><br>
+      <form id="new-post-form" aria-label="Add new blog post">
+        <h3>Add New Post</h3>
+        <input type="text" id="new-title" placeholder="Title" required />
+        <input type="text" id="new-author" placeholder="Author" required />
+        <textarea id="new-content" rows="4" placeholder="Content" required></textarea>
+        <button type="submit">Add Post</button>
+      </form>
 
-    <button type="submit">Add Post</button>
-  </form>
-<form id="edit-post-form" class="hidden">
-  <h4>Edit Post</h4>
-  <label for="edit-title">Title:</label>
-  <input type="text" id="edit-title"><br>
-
-  <label for="edit-content">Content:</label>
-  <textarea id="edit-content" rows="4"></textarea><br>
-
-  <button type="submit">Update</button>
-  <button type="button" id="cancel-edit">Cancel</button>
-</form>
+      <form id="edit-post-form" class="hidden" aria-label="Edit blog post">
+        <h3>Edit Post</h3>
+        <input type="text" id="edit-title" placeholder="Title" required />
+        <textarea id="edit-content" rows="4" placeholder="Content" required></textarea>
+        <button type="submit">Update Post</button>
+        <button type="button" id="cancel-edit">Cancel</button>
+      </form>
+    </section>
+  </main>
 
   <script src="index.js"></script>
 </body>

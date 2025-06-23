@@ -1,72 +1,176 @@
+/* Reset browser default box model */
+* {
+  box-sizing: border-box;
+}
+
+/* Overall page styling */
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f9fc;
-  margin: 20px;
+  /* Light blue background to keep the vibe soft */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e6f2f8;
+  margin: 0;
+  padding: 30px;
   color: #333;
 }
 
+/* Main blog title */
+header h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+/* Welcome message box under the title */
+.intro {
+  max-width: 800px;
+  margin: 0 auto 30px;
+  text-align: center;
+  padding: 10px 20px;
+  background: #e0f2fe;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* Welcome message text */
+.intro h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+  color: #1e3a8a;
+}
+
+.intro p {
+  font-size: 1rem;
+  color: #334155;
+}
+
+/* Container holding both post list and details */
 .container {
   display: flex;
-  gap: 20px;
-  max-width: 960px;
+  gap: 25px;
+  max-width: 1100px;
   margin: 0 auto;
+  align-items: flex-start;
 }
 
+/* Left column - post list */
 #post-list {
   flex: 1;
-  background: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-height: 500px;
+  background: #f9fbfc;
+  border-radius: 12px;
+  padding: 20px;
+  min-width: 220px;
+  max-height: 600px;
   overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
+/* Post list heading */
+#post-list h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  color: #0f3c70;
+  border-bottom: 2px solid #d0ebff;
+  padding-bottom: 8px;
+}
+
+/* Each post title block */
 #post-list div {
-  padding: 10px;
-  margin-bottom: 8px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  background: #cfe9ff;
+  color: #003366;
+  border-radius: 8px;
   cursor: pointer;
-  border-radius: 4px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+
+/* Highlight on hover or when active */
+#post-list div:hover,
+#post-list div.active {
+  background: #007bff;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Right side content (details + forms) */
+.right-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Shared card style for details and forms */
+#post-detail,
+#new-post-form,
+#edit-post-form {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Post detail section */
+#post-detail h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+#post-detail p {
+  margin-bottom: 10px;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#post-detail em {
+  color: #64748b;
+}
+
+/* Form heading */
+form h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+/* Input and textarea fields */
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  background: #fff;
+}
+
+/* Buttons for Add / Edit / Cancel */
+form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
   transition: background 0.2s ease;
 }
 
-#post-list div:hover {
-  background: #e0f0ff;
-}
-
-#post-detail {
-  flex: 2;
-  background: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-height: 500px;
-  overflow-y: auto;
-}
-
-button {
-  background: #007bff;
-  border: none;
-  padding: 8px 14px;
-  color: white;
-  border-radius: 4px;
-  margin-right: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-button:hover {
+form button:hover {
   background: #0056b3;
 }
 
-form input, form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-}
-
-form button[type="submit"] {
-  width: auto;
+/* Hide edit form until user clicks 'Edit' */
+.hidden {
+  display: none;
 }

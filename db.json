@@ -1,22 +1,10 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Welcome to My Blog",
-      "content": "This is the first post.",
-      "author": "Lynnsey"
-    },
-    {
       "id": 2,
-      "title": "Another Post",
-      "content": "Some other content here.",
+      "title": "POST 1",
+      "content": "Hey Moringa is awesome you should join",
       "author": "Josh"
-    },
-    {
-      "title": "ghjkl",
-      "author": "ghjk",
-      "content": "vbnm,.",
-      "id": 3
     }
   ]
 }
