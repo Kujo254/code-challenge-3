@@ -11,6 +11,12 @@
       "title": "Another Post",
       "content": "Some other content here.",
       "author": "Josh"
+    },
+    {
+      "title": "ghjkl",
+      "author": "ghjk",
+      "content": "vbnm,.",
+      "id": 3
     }
   ]
 }
