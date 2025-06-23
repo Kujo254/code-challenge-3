@@ -1,4 +1,4 @@
-// Show all posts when the page loads
+// Load all posts when the page starts
 function displayPosts() {
   fetch("http://localhost:3000/posts")
     .then(res => res.json())
@@ -6,13 +6,18 @@ function displayPosts() {
       const postList = document.getElementById("post-list");
       postList.innerHTML = "<h2>All Posts</h2>";
 
-      // Go through each post and add it to the list
+      // Show the first post by default
+      if (posts.length > 0) {
+        showPostDetails(posts[0].id);
+      }
+
+      // Show all titles
       posts.forEach(post => {
         const div = document.createElement("div");
         div.textContent = post.title;
         div.dataset.id = post.id;
 
-        // When you click a title, show the full post
+        // When I click a title, show the post
         div.addEventListener("click", () => {
           showPostDetails(post.id);
         });
@@ -22,7 +27,7 @@ function displayPosts() {
     });
 }
 
-// Get one post and show its full content
+// Show one post’s full details
 function showPostDetails(id) {
   fetch(`http://localhost:3000/posts/${id}`)
     .then(res => res.json())
@@ -36,26 +41,25 @@ function showPostDetails(id) {
     });
 }
 
-// Handle the form that adds a new post
+// Add a new post from the form
 function addNewPostListener() {
   const form = document.getElementById("new-post-form");
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault(); // stop the form from refreshing the page
+    e.preventDefault(); // don’t reload the page
 
-    // Get values from the form inputs
     const title = document.getElementById("new-title").value;
     const author = document.getElementById("new-author").value;
     const content = document.getElementById("new-content").value;
 
     const newPost = { title, author, content };
 
-    // Add the new title to the post list
+    // Show the new post title
     const postList = document.getElementById("post-list");
     const div = document.createElement("div");
     div.textContent = newPost.title;
 
-    // When clicked, show the new post’s content
+    // Let me click the new post to see its details
     div.addEventListener("click", () => {
       const detail = document.getElementById("post-detail");
       detail.innerHTML = `
@@ -66,11 +70,11 @@ function addNewPostListener() {
     });
 
     postList.appendChild(div);
-    form.reset(); // clear the form after submission
+    form.reset(); // clear the form
   });
 }
 
-// Run everything after the page finishes loading
+// Run when page is ready
 document.addEventListener("DOMContentLoaded", () => {
   displayPosts();
   addNewPostListener();
