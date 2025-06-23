@@ -37,7 +37,21 @@ function showPostDetails(id) {
         <h2>${post.title}</h2>
         <p>${post.content}</p>
         <p><em>by ${post.author}</em></p>
+        <button id="edit-btn">Edit</button>
       `;
+
+      // When I click Edit, show the edit form
+      document.getElementById("edit-btn").addEventListener("click", () => {
+        const editForm = document.getElementById("edit-post-form");
+        editForm.classList.remove("hidden");
+
+        // Fill in the form with the current post
+        document.getElementById("edit-title").value = post.title;
+        document.getElementById("edit-content").value = post.content;
+
+        // Save the ID of the post we're editing
+        editForm.dataset.id = post.id;
+      });
     });
 }
 
