@@ -33,7 +33,7 @@ Make sure you have Node.js installed, then install the following globally:
 
 ```bash
 npm install -g json-server live-server
-Project Setup
+##Project Setup
 Clone the repo or download the ZIP.
 
 Inside the project folder, make sure you have:
@@ -41,16 +41,15 @@ index.html
 style.css  
 index.js  
 db.json
-Start the backend server:
 
-
+##Start the backend server:
 json-server --watch db.json
 Launch the frontend with:
 
-live-server
+#live-server
 The app should open in your browser at: http://127.0.0.1:5500
 
-API Endpoints (Local JSON Server)
+#API Endpoints (Local JSON Server)
 GET /posts — fetch all posts
 
 GET /posts/:id — fetch a single post
@@ -65,7 +64,7 @@ DELETE /posts/:id — delete a post
 This version is hosted on GitHub Pages. Since it uses fetch() to call localhost:3000, you won’t see full functionality unless you run JSON Server locally.
 
 
-Author
+#Author
 Kurui Joshua
 Student at Moringa School
 
